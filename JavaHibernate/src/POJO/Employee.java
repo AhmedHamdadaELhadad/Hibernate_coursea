@@ -13,6 +13,7 @@ import javax.persistence.Temporal;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Lob;
+import javax.persistence.SecondaryTable;
 import javax.persistence.OrderBy;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.TemporalType;
@@ -20,31 +21,37 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "employee")
+@SecondaryTable(name = "traning")
 public class Employee {
 
     @Id
     @Column(name = "Employee_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @OrderBy( "fullName des")
+
+    @OrderBy("fullName des")
     @Column(name = "Employee_Name")
     private String fullName;
-     
-    @Column(name = "Date",unique = false)
+
+    @Column(name = "Date", unique = false)
     @Temporal(TemporalType.DATE)
     private Date hireData;
-    
+
     @Column(name = "Time")
     @Temporal(TemporalType.TIME)
     private Date time;
-    
-     @Column(name = "Employee_Age")
+
+    @Column(name = "Employee_Age")
     private String age;
-   
-     @Column(name = "Employee_Address") 
+
+    @Column(name = "Employee_Address")
     private String address;
-  
+
+    @Column(table = "traning")
+    private String location;
+
+    @Column(table = "traning")
+    private String postion;
 
     public Date getHireData() {
         return hireData;
@@ -61,8 +68,6 @@ public class Employee {
     public void setTime(Date time) {
         this.time = time;
     }
-
-   
 
     public Employee() {
     }
@@ -99,9 +104,25 @@ public class Employee {
         this.address = address;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getPostion() {
+        return postion;
+    }
+
+    public void setPostion(String postion) {
+        this.postion = postion;
+    }
+
     public Employee(String fullName, String hireData, Date time, String age, String address) throws ParseException {
         this.fullName = fullName;
-        this.hireData =  new SimpleDateFormat("dd-MM-yyyy").parse(hireData);
+        this.hireData = new SimpleDateFormat("dd-MM-yyyy").parse(hireData);
         this.time = time;
         this.age = age;
         this.address = address;

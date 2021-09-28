@@ -23,25 +23,10 @@ public class JavaHibernate {
  
         CRUD crud = new CRUD();
       
-        crud.insert(" mostafa","25-3-2201",new Date(),"26","shabin elkom");
-      
+        crud.insert(" omar","23-8-2001",new Date(),"37","shabin elkom");
+      crud.selcet(29L);
     }
 
 
-    /*     
-  try {
-
-	
-            java.sql.Connection c = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/emp?serverTimezone=UTC",
-                    "root",
-                    ""
-            );
-    JOptionPane.showInputDialog("null","WEEL");
-      System.out.println(c);
-  }catch(Exception E){
-      System.out.println(E.toString());
   
-  }
-     */
 }
