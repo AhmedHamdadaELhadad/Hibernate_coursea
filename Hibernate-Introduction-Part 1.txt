@@ -1,0 +1,27 @@
+VIDEO 1 https://www.youtube.com/watch?v=YUul0yBGXCA&list=PLUmD5wQ2FYznGqM1sXL4jhd7QfJGYWrPK&index=2                        
+                                              Advantage of Hibernte 
+1- Data base independent quary :HQL is the object -oriented version of sql 
+2- Automatic table CRUD: provides the facility to creat and updata or .... the tables of data base automatically 
+3- simplifies complex join :to fetch data form multipe table is easy
+4- high performace and fast  
+   
+                                                       Topic in Hibernate	
+1-Hibernate Architecture  2- Mapping with Annotations  3-Mapping with Hibernate XML Files 
+4- Hibernate Assocition    5- Hibernate Cascade                6-Hibernate Query 
+7-Hibernate Criteria          8-Hibernate Native Sql              9-Hibernate Named Quary 
+10-Filtering Result
+
+			Type of object in Hibernate 
+1-Transient Object  is object before work with Hibernate
+2-Persisent Object  :is object hadle with session ,data baase are maintatined by Hibernate 
+3-Deteched Object : is object exist in the data base but are not maintained
+			
+			How Connect to DataBase Using Hibernate
+1-creat data base with User and Password 
+2-creat java apllicant 
+3-Add libary of Hibernate
+4-Add data base driver 
+5- Creat class in java 
+6- add Annotations 
+7-creat Configuration to Hibernate	
+
