@@ -21,7 +21,7 @@ import javax.persistence.Transient;
 
 @Entity
 @Table(name = "employee")
-@SecondaryTable(name = "traning")
+
 public class Employee {
 
     @Id
@@ -47,11 +47,7 @@ public class Employee {
     @Column(name = "Employee_Address")
     private String address;
 
-    @Column(table = "traning")
-    private String location;
-
-    @Column(table = "traning")
-    private String postion;
+   
 
     public Date getHireData() {
         return hireData;
@@ -104,21 +100,7 @@ public class Employee {
         this.address = address;
     }
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void setLocation(String location) {
-        this.location = location;
-    }
-
-    public String getPostion() {
-        return postion;
-    }
-
-    public void setPostion(String postion) {
-        this.postion = postion;
-    }
 
     public Employee(String fullName, String hireData, Date time, String age, String address) throws ParseException {
         this.fullName = fullName;

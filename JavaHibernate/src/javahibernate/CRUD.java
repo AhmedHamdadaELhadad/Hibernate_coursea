@@ -24,8 +24,7 @@ public class CRUD {
             employee3.setTime(new Date());
             employee3.setAge(age);
             employee3.setAddress(address);
-            employee3.setPostion("senior");
-            employee3.setLocation("Geza");
+           
             s.save(employee3);
 
             s.getTransaction().commit();
@@ -66,8 +65,7 @@ public class CRUD {
             System.out.println("Name is " + e.getFullName());
             System.out.println("Address  is :" + e.getAddress());
             System.out.println("Age  is :" + e.getAge());
-               System.out.println("Date is :" + e.getLocation());
-            System.out.println("TIME  is :" + e.getPostion());
+          
             System.out.println("Date is :" + e.getHireData());
             System.out.println("TIME  is :" + e.getTime());
          //   s.getTransaction().commit();

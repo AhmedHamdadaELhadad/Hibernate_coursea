@@ -1,0 +1,24 @@
+https://www.youtube.com/watch?v=Yv2xctJxE-w&list=PL4AFF701184976B25    1  to 3
+https://www.youtube.com/watch?v=sGnz1HZUOM4&list=PLq8huKQsVgUPmQ2Hog38BDtgzHcrW35L5   1 to 7
+
+What is Hibernate 
+Hibernate is a java framwork that simplifies the development of java applicant to interact with data base easly. it is open source ,lightweight,ORM(Object Relational Mapping)tool
+Hibernate implemnts the specofocations of JPA 
+
+ORM
+ is a programming technique for mapping data between relational databases and object oriented programming languages such as Java
+
+JPA  is package this contant ORM 
+
+
+
+setting up enviroment 
+1- creat project javaSE
+2- dowonload jar of Hibernat and add in libray 
+3- add MYSQL JAR 
+
+how use Hibernate 
+1)configration file of project to run Hibernate 
+2)The Model class (Annotations)
+3)Services method to creat the model object -Use the Hibernat  API
+

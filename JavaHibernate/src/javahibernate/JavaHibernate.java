@@ -1,7 +1,9 @@
 package javahibernate;
 
+import POJO.Collection.Operation;
 import POJO.Employee;
 import POJO.NewHibernateUtil;
+import POJO.TwoClassInOneTable.operation;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -20,13 +22,33 @@ public class JavaHibernate {
 
     public static void main(String[] args) throws ParseException {
         
- 
-        CRUD crud = new CRUD();
-      
-        crud.insert(" omar","23-8-2001",new Date(),"37","shabin elkom");
-      crud.selcet(29L);
-    }
 
+        
+      /*  
+        operation op=new operation();
+        op.insert();
+        */
+        
+        
+       Operation o=new Operation();
+     //  o.insertCollection();
+        o.deletCollection();
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*CRUD crud = new CRUD();
+       crud.delete(29L);
+      crud.updata(24L);
+      crud.selcet(3L);*/
+
+    }
 
   
 }
