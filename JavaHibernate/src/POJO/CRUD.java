@@ -1,4 +1,4 @@
-package javahibernate;
+package POJO;
 
 import POJO.Employee;
 import POJO.NewHibernateUtil;
