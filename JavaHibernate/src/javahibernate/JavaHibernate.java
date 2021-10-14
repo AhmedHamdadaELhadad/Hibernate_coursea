@@ -1,5 +1,7 @@
 package javahibernate;
 
+import POJO.CHQL;
+import POJO.CRUD;
 import POJO.Collection.Operation;
 import POJO.Employee;
 import POJO.HQL.Aggregate_Methods;
@@ -35,11 +37,11 @@ public class JavaHibernate {
        opq.Update();
         */
 
- /*CRUD crud = new CRUD();
+   /* CRUD crud = new CRUD();
        crud.delete(29L);
       crud.updata(24L);
       crud.selcet(3L);*/
- /*  
+     /*  
         operation op=new operation();
         op.insert();
        
@@ -47,10 +49,13 @@ public class JavaHibernate {
      //  o.insertCollection();
         o.deletCollection();*/
  
- 
-        Aggregate_Methods agm =new  Aggregate_Methods();
-        agm.opertaion();
- 
+        
+       /* Aggregate_Methods agm =new  Aggregate_Methods();
+        agm.opertaion();*/
+       
+       CHQL cc=new CHQL();
+       //cc.Criterial();
+       cc.AggregateMehtod();
  
  
  
