@@ -1,0 +1,98 @@
+  CREAT OR INSERT 
+  updata 
+  Delete
+  selete 
+	Use Session to help for doing same opertion 
+in insert set vaule for All atribute and use session.save and session .getTransaction().commit();
+
+code of insert
+//creat session 
+Session s = NewHibernateUtil.getSessionFactory().openSession();
+
+        try {
+	
+            s.beginTransaction();
+
+            Employee employee3 = new Employee();
+            employee3.setFullName(name);
+            employee3.setHireData(new SimpleDateFormat("dd-MM-yyyy").parse(Date));
+            employee3.setTime(new Date());
+            employee3.setAge(age);
+            employee3.setAddress(address);
+  
+            s.save(employee3);
+
+            s.getTransaction().commit();
+        } catch (HibernateException e) {
+            s.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            s.close();
+        } 
+**************************************************************************
+		In delete frist return object with session.get(Object name ,id )
+		and use session.delete(Object name)
+CODE OF DELET
+
+Session s = NewHibernateUtil.getSessionFactory().openSession();
+
+        try {
+            s.beginTransaction();
+            Employee e = new Employee();
+	int id=5; //founded in data base
+            e = (Employee) s.get(Employee.class, id);
+            s.delete(e);
+
+            s.getTransaction().commit();
+        } catch (HibernateException e) {
+            s.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            s.close();
+        }
+
+**************************************************************
+
+		                  in selcet operation use method get  session.get 
+CODE OF SELECT 
+ Session s = NewHibernateUtil.getSessionFactory().openSession();
+        try {
+           // s.beginTransaction();
+            Employee e = new Employee();
+            e = (Employee) s.get(Employee.class, id);
+            System.out.println("Id is " + e.getId());
+            System.out.println("Name is " + e.getFullName());
+            System.out.println("Address  is :" + e.getAddress());
+           
+            System.out.println("TIME  is :" + e.getPostion());
+            System.out.println("Date is :" + e.getHireData());
+            System.out.println("TIME  is :" + e.getTime());
+         //   s.getTransaction().commit();
+        } catch (HibernateException e) {
+            s.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            s.close();
+        }
+************************************************************
+		in updata opertaion get object and set new value for attribute 
+
+	 s.beginTransaction();
+            Employee e = new Employee();
+
+            e = (Employee) s.get(Employee.class, id);
+            e.setFullName("sara");
+
+            e.setHireData(new Date());
+            e.setTime(new Date());
+   
+            s.update(e);
+
+            s.getTransaction().commit();
+        } catch (HibernateException e) {
+            s.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            s.close();
+        }
+	

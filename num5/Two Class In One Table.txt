@@ -1,0 +1,199 @@
+			                              How do two class save one Table in data base 
+			                              and one Class store two table in data base 
+
+Frist creat two class and put attrubite and setter and getter for attrbute
+one of class put @Embeddable(A)  and anthor class put @Entity(B)
+in class who hass(B)  take object from calss (A) and put annation  @Embedded and put getter and setter on this 
+
+real code is 
+Class A
+
+package POJO.TwoClassInOneTable;
+import javax.persistence.Entity;
+import javax.persistence.Embedded;
+import javax.persistence.Id;
+
+@Entity
+
+public class embassdor {
+
+    @Id  //GenerationType.Auto
+    private int id;
+    private String fullname;
+
+    public location getLo() {
+        return lo;
+    }
+
+    public void setLo(location lo) {
+        this.lo = lo;
+    }
+    
+    @Embedded
+    private location lo;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+
+}
+
+Class B IS 
+package POJO.TwoClassInOneTable;
+import javax.persistence.Embeddable;
+@Embeddable
+public class location {
+  private  String form_Loacation;
+  private  String to_Loacation;
+
+    public String getForm_Loacation() {
+        return form_Loacation;
+    }
+
+    public void setForm_Loacation(String form_Loacation) {
+        this.form_Loacation = form_Loacation;
+    }
+
+    public String getTo_Loacation() {
+        return to_Loacation;
+    }
+
+    public void setTo_Loacation(String to_Loacation) {
+        this.to_Loacation = to_Loacation;
+    }  
+}
+					TO INSERT OR CREAT TABLE  set vaule for class B and add in Class A the save Class A in session 
+
+
+Real code 
+Session s = NewHibernateUtil.getSessionFactory().openSession();
+
+            s.beginTransaction();
+            location l=new location();
+            l.setForm_Loacation("Alex");
+            l.setTo_Loacation("Cario");
+            embassdor e=new embassdor();
+            e.setFullname("john ibram");
+            e.setLo(l);
+            s.save(e); 
+            s.getTransaction().commit();
+
+					Whene code Run One Table Creat in data base Have named Class A (embassdor )
+
+	Note Selete and Updata and delete same normall table
+*********************************************************************************************************************************************************************
+					one  class save two table in data base Throgth @Secondary Table(name =" ") on class and put @ Column(table = "")
+
+Code of This 
+
+@Entity
+@Table(name = "employee")
+@SecondaryTable(name = "traning")
+public class Employee {
+    @Id
+    @Column(name = "Employee_id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+private Long id;
+
+    @Column(name = "Employee_Name")
+    private String fullName;
+
+
+///////////////////////////////////////////
+    @Column(table = "traning")
+    private String location;
+
+    @Column(table = "traning")
+    private String postion;
+
+
+////////////////////////////////////////
+
+    public Employee() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String Location){
+        this.location = location;
+    }
+
+    public String getPostion() {
+        return postion;
+    }
+
+    public void setPostion(String postion) {
+        this.postion = postion;
+    }
+
+    }
+
+			                 CRUD OPERATION SUCH NORMAL 
+
+
+Do Two table one table name="employee" has{ id ,full name  } and other name="traning" {id , postion,location} Note the id is same and primkey
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

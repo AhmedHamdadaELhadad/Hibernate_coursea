@@ -1,0 +1,60 @@
+			Session 
+
+Sesssion factory creat session and  it handle with data base 
+
+		Session Benifites 
+1-Creat new data base enities 
+2-Read in object from data base
+3-Updata and delet object from data base 
+4- it allow you to mange the Transtions
+
+		Impotant method for session 
+Save()
+Save or updata()
+merge()
+persist()
+get()
+get EnitiyName()
+get Identifier()
+load()
+refresh()
+updata()
+delete()
+createFiler()
+enableFilter()
+creat Quary()
+creatCriteria()
+
+			Step For Saving an object in Data base
+1-creat Session Factory 
+2-Creat Session 
+3- begin Transaction 
+4- creat Object form enitity 
+5- setting data in object 
+6- Saving object 
+7- get Transaction and commit 
+8-get Transaction and rollback 
+9-Close Session
+		
+
+
+ Session s = NewHibernateUtil.getSessionFactory().openSession();
+
+        try {
+            s.beginTransaction();
+
+            Employee employee3 = new Employee();
+            employee3.setFullName(name);
+            employee3.setHireData(new SimpleDateFormat("dd-MM-yyyy").parse(Date));
+            employee3.setTime(new Date());
+            employee3.setAge(age);
+            employee3.setAddress(address);
+            s.save(employee3);// make data base without vaule 
+
+            s.getTransaction().commit(); //make data base with vaule 
+        } catch (HibernateException e) {
+            s.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            s.close();
+        }

@@ -21,8 +21,8 @@ public class CHQL {
         Session s = NewHibernateUtil.getSessionFactory().openSession();
         s.beginTransaction();
         try {
-
-            /*Integer[] valus = {6250, 6666, 2};
+            Criteria c = s.createCriteria(Person.class);
+            Integer[] valus = {6250, 6666, 2};
             c.setFirstResult(0);
             c.setMaxResults(4);
             c.add(Restrictions.isNotNull("salary"));
@@ -36,29 +36,29 @@ public class CHQL {
 
             c.add(Restrictions.in("salary", valus));
             c.add(Restrictions.isNull("name"));
-            c.add(Restrictions.ne("name", "Ali"));*/
+            c.add(Restrictions.ne("name", "Ali"));
 
- /*         c.setProjection(Projections.property("name"));  
-            List p=  c.list();
-            for(int i=0;i<p.size();++i){
-            System.out.println(p.get(i));
+            c.setProjection(Projections.property("name"));
+            List p = c.list();
+            for (int i = 0; i < p.size(); ++i) {
+                System.out.println(p.get(i));
 
-        }*/
-            Criteria c = s.createCriteria(Person.class);
+            }
+
             Criterion c1 = Restrictions.eq("position", "junior");
             Criterion c2 = Restrictions.like("name", "a", MatchMode.ANYWHERE);
 
             LogicalExpression log1 = Restrictions.or(c1, c2);
             LogicalExpression log2 = Restrictions.and(c1, c2);
             c.add(log2);
-            List<Person> p = c.list();
-            for (Person pp : p) {
+            List<Person> per = c.list();
+            for (Person pp : per) {
 
                 System.out.println("The ID IS: " + pp.getId());
                 System.out.println("The Name IS: " + pp.getName());
-                /*  System.out.println("The Salary IS: " + pp.getSalary());
+                System.out.println("The Salary IS: " + pp.getSalary());
                 System.out.println("The JobTitle IS: " + pp.getJobTitle());
-                System.out.println("The Position IS: " + pp.getPosition());*/
+                System.out.println("The Position IS: " + pp.getPosition());
 
             }
 
@@ -75,23 +75,25 @@ public class CHQL {
         s.beginTransaction();
         try {
             Criteria c1 = s.createCriteria(Person.class);
-            Criteria max = c1.setProjection(Projections.max("salary"));
+            c1.setProjection(Projections.max("salary"));
+            List<Person> max = c1.list();
             Criteria c2 = s.createCriteria(Person.class);
             Criteria min = c2.setProjection(Projections.min("salary"));
-               Criteria c3 = s.createCriteria(Person.class);
-           Criteria sum = c3.setProjection(Projections.sum("salary"));
-              Criteria c4 = s.createCriteria(Person.class);
+
+            Criteria c3 = s.createCriteria(Person.class);
+            Criteria sum = c3.setProjection(Projections.sum("salary"));
+            Criteria c4 = s.createCriteria(Person.class);
             Criteria count = c4.setProjection(Projections.count("salary"));
-               Criteria c5 = s.createCriteria(Person.class);
+            Criteria c5 = s.createCriteria(Person.class);
             Criteria dicount = c5.setProjection(Projections.countDistinct("salary"));
-               Criteria c6 = s.createCriteria(Person.class);
+            Criteria c6 = s.createCriteria(Person.class);
             Criteria avg = c6.setProjection(Projections.avg("salary"));
 
-            System.out.println("The max IS: " + max.list().toString());
-          System.out.println("The min IS: " + min.list().toString());
-            System.out.println("The sum IS: " + sum.list().toString());
-            System.out.println("The count IS:" + count.list().toString());
-            System.out.println("The ava IS: " + avg.list().toString());
+            System.out.println("The max IS: " + max.get(0));
+            System.out.println("The min IS: " + min.list().get(0));
+            System.out.println("The sum IS: " + sum.list().get(0));
+            System.out.println("The count IS:" + count.list().get(0));
+            System.out.println("The ava IS: " + avg.list().get(0));
 
         } catch (HibernateException e) {
             s.getTransaction().rollback();

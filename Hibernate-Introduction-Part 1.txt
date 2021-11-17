@@ -6,10 +6,10 @@ VIDEO 1 https://www.youtube.com/watch?v=YUul0yBGXCA&list=PLUmD5wQ2FYznGqM1sXL4jh
 4- high performace and fast  
    
                                                        Topic in Hibernate	
-1-Hibernate Architecture  2- Mapping with Annotations  3-Mapping with Hibernate XML Files 
+1-Hibernate Architecture  2- Mapping with Annotations   
 4- Hibernate Assocition    5- Hibernate Cascade                6-Hibernate Query 
-7-Hibernate Criteria          8-Hibernate Native Sql              9-Hibernate Named Quary 
-10-Filtering Result
+7-Hibernate Criteria                        9-Hibernate Named Quary 
+
 
 			Type of object in Hibernate 
 1-Transient Object  is object before work with Hibernate

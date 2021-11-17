@@ -58,5 +58,8 @@ Contributor(s):
     <mapping class="POJO.TwoClassInOneTable.location"/>
     <mapping class="POJO.Collection.Student"/>
     <mapping class="POJO.HQL.Person"/>
+ 
+    <mapping class="relationships.manytomany.Car"/>
+    <mapping class="relationships.manytomany.Color"/>
   </session-factory>
 </hibernate-configuration>
